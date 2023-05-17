@@ -1,30 +1,39 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="app">
+    <div class="menu"></div>
+    <div class="content">
+      <navbar></navbar>
+      <products></products>
+    </div>
+  </div>
 </template>
 
+<script>
+import Navbar from '@/components/Navbar';
+import Products from '@/components/Products.vue';
+  export default {
+    components:{
+    Navbar,
+    Products
+}
+  }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .menu{
+      width: 229px;
+      height: 850px;
+      background-image: radial-gradient(circle at 29% 0, #000, #1c2734 103%);
+    }
+    .app{
+      display: flex;
+    }
+    .content{
+      margin: 25px;
+    }
 </style>
