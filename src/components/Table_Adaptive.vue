@@ -6,16 +6,14 @@
         <table>
             <thead>
                 <tr>
-                <th>Номер</th>
-                <th>Наименование</th>
-                <th>Цена</th>
+                <th v-for="head in headers" :key="headers.id">
+                    {{head.name}}
+                </th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="row in rows" :key="row.id">
-                <td><img src="@/icons/Groups.svg" alt="Group">{{row.id}}</td>
-                <td>{{row.name}}</td>
-                <td>{{row.price}}</td>
+                    <Td_Item :row = "row"></Td_Item>
                 </tr>
             </tbody>
         </table>
@@ -23,7 +21,11 @@
 </template>
 
 <script>
+import Td_Item from '@/components/Td_Item.vue'
     export default {
+        components:{
+            Td_Item
+        },
         data(){
             return{
                 rows: [
@@ -33,13 +35,18 @@
                     { id: 4, name: "Monica Geller", price: '1234'},
                     { id: 5, name: "Joey Tribbiani", price: '1234'},
                     { id: 6, name: "Phoebe Buffay", price: '1234'}
+                ],
+                headers:[
+                    { id: 1, name: "Номер"},
+                    { id: 2, name: "Наименование"},
+                    { id: 3, name: "Цена"},
                 ]
             }
     }
     }
 </script>
 
-<style scoped>
+<style>
     .table_adaptive{
         margin-top: 25px;
         padding: 0px 0px 25px 0px;
@@ -68,10 +75,6 @@
         padding: 5px;
         background: #fff;
         border: 1px solid #eeeff1;
-    }
-    table td {
-        border: none;
-        padding: 5px 10.5px;
     }
     table tr th:first-child {
         border-left: none;
