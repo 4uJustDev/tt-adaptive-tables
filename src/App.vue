@@ -32,6 +32,7 @@ import Products from '@/components/Products.vue';
     }
     .app{
       display: flex;
+      background-color: #eeeff1;
     }
     .content{
       margin: 25px;
