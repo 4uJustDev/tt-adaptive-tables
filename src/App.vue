@@ -20,6 +20,7 @@ import Products from '@/components/Products.vue';
 </script>
 
 <style>
+@import '@/fonts/fonts.css';
     *{
         margin: 0;
         padding: 0;
