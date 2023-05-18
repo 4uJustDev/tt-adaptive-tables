@@ -24,12 +24,12 @@
         data(){
             return{
                 rows: [
-                    { id: 1, name: "Chandler Bing", price: '305-917-1301'},
-                    { id: 2, name: "Ross Geller", price: '210-684-8953'},
-                    { id: 3, name: "Rachel Green", price: '765-338-0312'},
-                    { id: 4, name: "Monica Geller", price: '714-541-3336'},
-                    { id: 5, name: "Joey Tribbiani", price: '972-297-6037'},
-                    { id: 6, name: "Phoebe Buffay", price: '760-318-8376'}
+                    { id: 1, name: "Chandler Bing", price: '1234'},
+                    { id: 2, name: "Ross Geller", price: '1234'},
+                    { id: 3, name: "Rachel Green", price: '1234'},
+                    { id: 4, name: "Monica Geller", price: '1234'},
+                    { id: 5, name: "Joey Tribbiani", price: '1234'},
+                    { id: 6, name: "Phoebe Buffay", price: '1234'}
                 ]
             }
     }
@@ -44,9 +44,12 @@
         box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.07);
         border: solid 1px #eeeff1;
         background-color: #fff;
+        font-family: MyriadPro;
+    }
+    #firstTable{
+        width: 100%;
     }
     table th {
-    text-transform: uppercase;
     text-align: left;
     background: #44475C;
     color: #FFF;

@@ -28,7 +28,6 @@
 }
 .navbar{
     margin-bottom: 25px;
-    width: 100%;
 }
 .navbar_btns{
     margin-top: 25px;
