@@ -6,13 +6,16 @@
                 <p>Добавить строку</p>
             </button>
         </div>
+        <Table_Adaptive></Table_Adaptive>
     </div>
 </template>
 
 <script>
+import Table_Adaptive from './Table_Adaptive.vue';
+
     export default {
-        
-    }
+    components: { Table_Adaptive }
+}
 </script>
 
 <style scoped>  

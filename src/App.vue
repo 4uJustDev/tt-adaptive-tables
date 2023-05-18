@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="main">
     <div class="menu"></div>
     <div class="content">
       <navbar></navbar>
@@ -28,14 +28,15 @@ import Products from '@/components/Products.vue';
     }
     .menu{
       width: 229px;
-      height: 850px;
       background-image: radial-gradient(circle at 29% 0, #000, #1c2734 103%);
     }
-    .app{
+    .main{
       display: flex;
       background-color: #eeeff1;
+      height: 100vh;
     }
     .content{
       margin: 25px;
+      width: 100%;
     }
 </style>
