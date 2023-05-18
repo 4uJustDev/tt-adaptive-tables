@@ -1,6 +1,9 @@
 <template>
     <div class="table_adaptive">
-        <table id="firstTable">
+        <div class="settings">
+            <img src="@/icons/Settings.svg" alt="Settings">
+        </div>
+        <table>
             <thead>
                 <tr>
                 <th>Номер</th>
@@ -39,32 +42,41 @@
 <style scoped>
     .table_adaptive{
         margin-top: 25px;
-        padding: 32px 0px 25px 0px;
+        padding: 0px 0px 25px 0px;
         border-radius: 10px;
         box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.07);
         border: solid 1px #eeeff1;
         background-color: #fff;
         font-family: MyriadPro;
     }
+    .settings{
+        width: 100%;
+        padding: 9px 15px 8px 0px;
+        display: flex;
+        justify-content: flex-end;
+    }
     #firstTable{
         width: 100%;
     }
+    table {
+	width: 100%;
+	margin-bottom: 20px;
+	border-collapse: collapse; 
+    }
     table th {
-    text-align: left;
-    background: #44475C;
-    color: #FFF;
-    padding: 8px;
-    min-width: 30px;
+        font-weight: bold;
+        padding: 5px;
+        background: #fff;
+        border: 1px solid #eeeff1;
     }
-
     table td {
-    text-align: left;
-    padding: 8px;
+        border: none;
+        padding: 5px 10.5px;
     }
-    table td:last-child {
-    border-right: none;
+    table tr th:first-child {
+        border-left: none;
     }
-    table tbody tr:nth-child(2n) td {
-    background: #D4D8F9;
+    table tr th:last-child {
+        border-right: none;
     }
 </style>
