@@ -3,11 +3,11 @@
         <div class="settings">
             <img src="@/icons/Settings.svg" alt="Settings">
         </div>
-        <table>
+        <table id="resizeTable" class="table">
             <thead>
                 <tr>
                 <th v-for="head in headers" :key="headers.id">
-                    {{head.name}}
+                    <p class="text">{{head.name}}</p>
                 </th>
                 </tr>
             </thead>
@@ -42,7 +42,71 @@ import Td_Item from '@/components/Td_Item.vue'
                     { id: 3, name: "Цена"},
                 ]
             }
-    }
+        },
+        mounted(){
+                // Query the table
+                const table = document.getElementById('resizeTable');
+
+                // Query all headers
+                let cols = Array.from(table.querySelectorAll('th'));
+                cols.pop();
+                console.log(cols)
+
+                cols.forEach(col=>{
+                    // Create a resizer element
+                    const resizer = document.createElement('div');
+                    resizer.classList.add('resizer');
+
+                    // Set the height
+                    resizer.style.height = `${table.offsetHeight}px`;
+
+                    // Add a resizer element to the column
+                    col.appendChild(resizer);
+
+                    // Will be implemented in the next section
+                    this.createResizableColumn(col, resizer);
+                });
+        },
+        methods:{
+            createResizableColumn (col, resizer) {
+                // Track the current position of mouse
+                let x = 0;
+                let  w = 0;
+
+                const mouseDownHandler = function (e) {
+                    // Get the current mouse position
+                    x = e.clientX;
+
+                    // Calculate the current width of column
+                    const styles = window.getComputedStyle(col);
+                    w = parseInt(styles.width, 10);
+
+                    // Attach listeners for document's events
+                    document.addEventListener('mousemove', mouseMoveHandler);
+                    document.addEventListener('mouseup', mouseUpHandler);
+
+                    resizer.classList.add('resizing');
+                };
+
+                const mouseMoveHandler = function (e) {
+                    // Determine how far the mouse has been moved
+                    const dx = e.clientX - x;
+
+                    // Update the width of column
+                    col.style.width = `${w + dx}px`;
+                };
+
+                // When user releases the mouse, remove the existing event listeners
+                const mouseUpHandler = function () {
+                    document.removeEventListener('mousemove', mouseMoveHandler);
+                    document.removeEventListener('mouseup', mouseUpHandler);
+
+                    resizer.classList.remove('resizing');
+                };
+
+                resizer.addEventListener('mousedown', mouseDownHandler);
+            },
+        }
     }
 </script>
 
@@ -76,10 +140,27 @@ import Td_Item from '@/components/Td_Item.vue'
         background: #fff;
         border: 1px solid #eeeff1;
     }
+    .resizer {
+        /* Displayed at the right side of column */
+        position: absolute;
+        top: 0;
+        right: -0.5px;
+        width: 5px;
+        cursor: col-resize;
+        user-select: none;
+    }
+    .resizer:hover,
+    .resizing {
+        border-right: 1px solid #eeeff1;
+    }
     table tr th:first-child {
         border-left: none;
     }
     table tr th:last-child {
         border-right: none;
+    }
+    table th,
+    table td{
+        position: relative;
     }
 </style>
