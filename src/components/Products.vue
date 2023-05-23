@@ -1,10 +1,7 @@
 <template>
     <div>
         <div class="btns_group">
-            <button class="btn">
-                <img src="@/icons/Plus.svg" alt="Add" class="image">
-                <p>Добавить строку</p>
-            </button>
+            <my-button>Добавить строку</my-button>
         </div>
         <Table_Adaptive></Table_Adaptive>
     </div>

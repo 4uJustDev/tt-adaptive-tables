@@ -1,8 +1,7 @@
 <template>
     <td><p class="text"><img src="@/icons/Groups.svg" alt="Group">{{row.id}}</p></td>
-    <td><p class="text">{{row.name}}</p></td>
-    <td><p class="text">{{row.price}}</p></td>
-    
+    <td><my-item>{{row.name}}</my-item></td>
+    <td><my-item>{{row.price}}</my-item></td>
 </template>
 
 <script>

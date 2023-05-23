@@ -7,13 +7,13 @@
             <thead>
                 <tr>
                 <th v-for="head in headers" :key="headers.id">
-                    <p class="text">{{head.name}}</p>
+                    <p class="tst">{{head.name}}</p>
                 </th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="row in rows" :key="row.id">
-                    <Td_Item :row = "row"></Td_Item>
+                    <Td_Items :row = "row"></Td_Items>
                 </tr>
             </tbody>
         </table>
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import Td_Item from '@/components/Td_Item.vue'
+import Td_Items from '@/components/Td_Items.vue'
     export default {
         components:{
-            Td_Item
+            Td_Items
         },
         data(){
             return{
@@ -34,7 +34,7 @@ import Td_Item from '@/components/Td_Item.vue'
                     { id: 3, name: "Rachel Green", price: '1234'},
                     { id: 4, name: "Monica Geller", price: '1234'},
                     { id: 5, name: "Joey Tribbiani", price: '1234'},
-                    { id: 6, name: "Phoebe Buffay", price: '1234'}
+                    { id: 6, name: "Phoebe Buffay333333333333333333333", price: '1234'}
                 ],
                 headers:[
                     { id: 1, name: "Номер"},
@@ -118,7 +118,7 @@ import Td_Item from '@/components/Td_Item.vue'
         box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.07);
         border: solid 1px #eeeff1;
         background-color: #fff;
-        font-family: MyriadPro;
+        font-family: 'MyriadPro';
     }
     .settings{
         width: 100%;
@@ -139,6 +139,14 @@ import Td_Item from '@/components/Td_Item.vue'
         padding: 5px;
         background: #fff;
         border: 1px solid #eeeff1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    .tst{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
     }
     .resizer {
         /* Displayed at the right side of column */
@@ -151,7 +159,7 @@ import Td_Item from '@/components/Td_Item.vue'
     }
     .resizer:hover,
     .resizing {
-        border-right: 1px solid #eeeff1;
+        border-right: 1px solid #bcbcbc;
     }
     table tr th:first-child {
         border-left: none;
